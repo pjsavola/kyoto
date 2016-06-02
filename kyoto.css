@@ -1,0 +1,110 @@
+p {
+   font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+   font-family: Arial, Helvetica, sans-serif;
+}
+h2 {
+   font-family: Arial, Helvetica, sans-serif;
+}
+h3 {
+   font-family: Arial, Helvetica, sans-serif;
+}
+td {
+   font-family: Arial, Helvetica, sans-serif;
+}
+a:link {
+   text-decoration: none;
+}
+table,th,td
+{
+   border:5px solid #fff;
+   border-collapse:collapse
+}
+th,td
+{
+   padding:5px;
+}
+td
+{
+   text-align:center;
+}
+.Coal {
+   background: url('images/coal.png');
+   no-repeat;
+   cursor: pointer;
+   border: none;
+   height: 84px;
+   width: 60px;
+}
+.Oil {
+   background: url('images/oil.png')
+   no-repeat;
+   cursor: pointer;
+   border: none;
+   height: 84px;
+   width: 60px;
+}
+.Gas {
+   background: url('images/gas.png')
+   no-repeat;
+   cursor: pointer;
+   border: none;
+   height: 84px;
+   width: 60px;
+}
+.Wood {
+   background: url('images/wood.png')
+   no-repeat;
+   cursor: pointer;
+   border: none;
+   height: 84px;
+   width: 60px;
+}
+.Uranium {
+   background: url('images/uranium.png')
+   no-repeat;
+   cursor: pointer;
+   border: none;
+   height: 84px;
+   width: 60px;
+}
+.Back {
+   color: white;
+   background: url('images/back.png')
+   no-repeat;
+   cursor: pointer;
+   border: none;
+   height: 84px;
+   width: 60px;
+}
+.Empty {
+   height: 84px;
+   width: 60px;
+}
+.Deck {
+   cursor: pointer;
+   height: 84px;
+   width: 60px;
+}
+.finesText {
+   background:#fff;
+   text-decoration: underline;
+}
+.description {
+   display:none;
+   position:absolute;
+   background:#fff;
+   border:1px solid #000;
+}
+.centered {
+   color:red;
+   position:fixed;
+   z-index: 100;  
+   top:20%;  
+   left:20%;  
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 250%;
+   background-color: white;
+   border:1px solid #aaa;
+}

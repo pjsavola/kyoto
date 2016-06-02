@@ -1,0 +1,211 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="kyoto.css">
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title>Kyoto Protocol</title>
+  </head>
+  <body>
+    <table>
+      <caption>
+	<h3>Start new game</h3>
+      </caption>
+      <tbody>
+	<tr>
+	  <td><button type="button" onclick="init(2)">2 players</button></td>
+	  <td><button type="button" onclick="init(3)">3 players</button></td>
+	  <td><button type="button" onclick="init(4)">4 players</button></td>
+	  <td><button type="button" onclick="init(5)">5 players</button></td>
+	  <td><button type="button" onclick="init(6)">6 players</button></td>
+	  <td><button type="button" onclick="init(7)">7 players</button></td>
+	</tr>
+      </tbody>
+    </table>
+
+    <table>
+      <caption>
+	<h1>Kyoto Protocol <a href="http://boardgamegeek.com/filepage/104247/kyoto-protocol-english-rules-v07" target="_blank">[?]</a></h1>
+      </caption>
+      <tbody>
+	<tr valign="top">
+	  <td>  
+	    <table>
+	      <caption>
+		<h3><center>The Offer</center></h3>
+	      </caption>
+	      <tbody>
+		<tr>
+		  <td><p><button id="deckButton" type="button" onclick="takeRandom()" class="Back"><p id="deck">33</p></button></p></td>
+		  <td><p><button id="card1Button" type="button" onclick="take1()" class="Empty"></button></p></td>
+		  <td><p><button id="card2Button" type="button" onclick="take2()" class="Empty"></button></p></td>
+		  <td><p><button id="card3Button" type="button" onclick="take3()" class="Empty"></button></p></td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <table>
+	      <caption>
+		<h3><center>Player Hand</center></h3>
+	      </caption>
+	      <tbody>
+		<tr>
+		  <td><font color="#333">Coal: </font><span id="Coal">0</span></td>
+		  <td><form name="Coalform"><select name="select" size="0" disabled="disabled"></select></form></td>
+		  <td><button style="button" onclick="playCoal()">Play</button></td>
+		</tr>
+		<tr>
+		  <td><font color="#770">Oil: </font><span id="Oil">0</span></td>
+		  <td><form name="Oilform"><select name="select" size="0" disabled="disabled"></select></form></td>
+		  <td><button style="button" onclick="playOil()">Play</button></td>
+		</tr>
+		<tr>
+		  <td><font color="#007">Gas: </font><span id="Gas">0</span></td>
+		  <td><form name="Gasform"><select name="select" size="0" disabled="disabled"></select></form></td>
+		  <td><button style="button" onclick="playGas()">Play</button></td>
+		</tr>
+		<tr>
+		  <td><font color="#722">Wood: </font><span id="Wood">0</span></td>
+		  <td><form name="Woodform"><select name="select" size="0" disabled="disabled"></select></form></td>
+		  <td><button style="button" onclick="playWood()">Play</button></td>
+		</tr>
+		<tr>
+		  <td><font color="#070">Uranium: </font><span id="Uranium">0</span></td>
+		  <td><form name="Uraniumform"><select name="select" size="0" disabled="disabled"></select></form></td>
+		  <td><button style="button" onclick="playUranium()">Play</button></td>
+		</tr>
+	      </tbody>
+	    </table>
+
+	    <p>
+	      <table>
+		<tbody>
+		  <tr>
+		    <td><form name="Cleanseform"><select name="select" size="0" disabled="disabled"></select></form></td>
+		    <td><button style="button" onclick="cleanse()">Cleanse</button></td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </p>
+	  </td>
+	  <td style="text-align: left;">
+	    <table>
+	      <caption>
+		<h3><center>Game Data</center></h3>
+	      </caption>
+	      <tbody>
+		<tr id="dataPlayers">
+		  <td></td>
+		</tr>
+		<tr id="dataCoal">
+		  <td><font color="#333">Coal</font></td>
+		</tr>
+		<tr id="dataOil">
+		  <td><font color="#770">Oil</font></td>
+		</tr>
+		<tr id="dataGas">
+		  <td><font color="#007">Gas</font></td>
+		</tr>
+		<tr id="dataWood">
+		  <td><font color="#722">Wood</font></td>
+		</tr>
+		<tr id="dataUranium">
+		  <td><font color="#070">Uranium</font></td>
+		</tr>
+		<tr id="dataTotal">
+		  <td>Total</td>
+		</tr>
+		<tr id="dataHand">
+		  <td>Hand</td>
+		</tr>
+		<tr id="dataFines">
+		  <td>
+		    <!-- Help box -->
+		    <div class="finesText">Fines
+		      <div class="description">
+			<table>
+			  <tr valign="top">
+			    <td>
+			      <table>
+				<caption><b>Production Goals</b></caption>
+				<tr>
+				  <td>Phase</td>
+				  <td>1</td>
+				  <td>2</td>
+				  <td>3</td>
+				</tr>
+				<tr>
+				  <td>Goal</td>
+				  <td id="quota1">0</td>
+				  <td id="quota2">0</td>
+				  <td id="quota3">0</td>
+				</tr>
+			      </table>
+			    </td>
+			    <td>
+			      <table>
+				<caption><b>Pollution Fines</b></caption>
+				<tr>
+				  <td>Phase</td>
+				  <td>2</td>
+				  <td>3</td>
+				</tr>
+				<tr>
+				  <td>Coal</td>
+				  <td>2</td>
+				  <td>4</td>
+				</tr>
+				<tr>
+				  <td>Oil</td>
+				  <td>2</td>
+				  <td>3</td>
+				</tr>
+				<tr>
+				  <td>Gas</td>
+				  <td>1</td>
+				  <td>3</td>
+				</tr>
+				<tr>
+				  <td>Wood</td>
+				  <td>2</td>
+				  <td>2</td>
+				</tr>
+				<tr>
+				  <td>Uranium</td>
+				  <td>1</td>
+				  <td>2</td>
+				</tr>
+			      </table>
+			  </tr>
+			</table>
+		      </div>
+		    </div>
+		  </td>
+		</tr>
+		<tr id="dataCleansed">
+		  <td>Cleansed</td>
+		</tr>
+		<tr id="dataScore">
+		  <td>Score</td>
+		</tr>
+	      </tbody>
+	    </table>
+	    <h3><center>Game Log</center></h3>
+	    <p id="history">...</p>
+	  </td>
+	</tr>
+      </tbody>
+    </table>
+    <p><button id="statsButton" type="button" onclick="stats()">Statistics</button></p>
+    <p id="stats"></p>
+    <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="scripts/kyoto.js"></script>
+
+    <!-- Ugly hack for creating images used for animations -->
+    <div id="CoalImage" class="Coal" style="display:none; position:absolute;"></div>
+    <div id="OilImage" class="Oil" style="display:none; position:absolute;"></div>
+    <div id="GasImage" class="Gas" style="display:none; position:absolute;"></div>
+    <div id="WoodImage" class="Wood" style="display:none; position:absolute;"></div>
+    <div id="UraniumImage" class="Uranium" style="display:none; position:absolute;"></div>
+    <div id="BackImage" class="Back" style="display:none; position:absolute;"></div>
+    <div id="Info" class="centered" style="display:none;"></div>
+  </body>
+</html>
